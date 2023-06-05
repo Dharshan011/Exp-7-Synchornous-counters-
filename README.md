@@ -53,36 +53,68 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: DHARSHAN V
+RegisterNumber: 212222230031
 */
 
-
-
-
+### UPCOUNTER
+```
+    module upc(clk,A);
+    input clk;
+    output reg[0:3]A;
+    always@(posedge clk)
+    begin
+      	A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+      	A[1]=(((A[2])&(A[3]))^A[1]);
+      	A[2]=((A[3])^A[2]);
+      	A[3]=1^A[3];
+    end
+    endmodule
+```
+## DOWNCOUNTER
+```
+  module downc(clk,A);
+  input clk;
+  output reg[0:3]A;
+  always@(posedge clk)
+  begin
+ 	A[0]=((((~A[1])&(~A[2]))&A[3])^A[0]);
+ 	A[1]=(((A[2])&(A[3]))^A[1]);
+ 	A[2]=((A[3])^A[2]);
+ 	A[3]=1^A[3];
+  end
+  endmodule
+```
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
 
 
+![Screenshot 2023-06-05 103153](https://github.com/Dharshan011/Exp-7-Synchornous-counters-/assets/113497491/0b8c2a05-5b56-4cad-be7e-84127458e0e3)
 
 
+![Screenshot 2023-06-05 103201](https://github.com/Dharshan011/Exp-7-Synchornous-counters-/assets/113497491/279d0bec-843b-4ec8-97f7-733bdd450373)
 
 
 
 
 ### TIMING DIGRAMS FOR COUNTER  
 
+![Screenshot 2023-06-05 103212](https://github.com/Dharshan011/Exp-7-Synchornous-counters-/assets/113497491/47816cc3-efc2-44d8-9328-38f21bf8dd4f)
 
 
 
 
 ### TRUTH TABLE 
 
+![Screenshot 2023-06-05 103221](https://github.com/Dharshan011/Exp-7-Synchornous-counters-/assets/113497491/cfcffbcd-e1f9-451f-9a2a-eb1c81723716)
 
+![Screenshot 2023-06-05 103234](https://github.com/Dharshan011/Exp-7-Synchornous-counters-/assets/113497491/8ea8efaf-ab41-4ace-817c-db94e9eeb96d)
 
 
 
 
 ### RESULTS 
+Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
+
